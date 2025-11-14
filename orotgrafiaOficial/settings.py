@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ortografia_oficial',
         'USER':'root',
-        'PASSWORD':'',
+        'PASSWORD':'1234',
         'HOST':'localhost',
         'PORT':'3306'
     }
