@@ -2,27 +2,28 @@ from django.db import models
 
 # Create your models here.
 
-class palavras(models.Model):
-    palavras = models.CharField(max_length=88, null=False, blank= False)
-    
-    def __str__(self):
-        return "Palavra [palavra = [{}]]".format(self.palavras)
-    
-
-class categoria(models.Model):
-    tipo_execoes = models.models.CharField(max_length=88, null=False,blank= False)
+class Categoria(models.Model):
+    tipo_execoes = models.CharField(max_length=88, null=False,blank= False)
     
     def __str__(self) -> str:
         return "Categoria [categoria = [{}]]".format(self.tipo_execoes)
 
-class regras(models.Model):
+class Regras(models.Model):
     
-    tipo_uso = models.models.CharField(max_length=88, null=False,blank= False)
+    tipo_uso = models.CharField(max_length=88, null=False,blank= False)
     
-    tipo_escrita = models.models.CharField(max_length=88, null=False,blank= False)
+    tipo_escrita = models.CharField(max_length=88, null=False,blank= False)
     
-    tipo_paronimos = models.models.CharField(max_length=88, null=False,blank= False)
+    tipo_paronimos = models.CharField(max_length=88, null=False,blank= False)
     
-    tipo_homonimos = models.models.CharField(max_length=88, null=False,blank= False)
+    tipo_homonimos = models.CharField(max_length=88, null=False,blank= False)
     
-    fk_tb_categoria_id = models.models.ForeignKey(categoria, on_delete=models.CASCADE, related_name = "palavras_categoria", null = False)
+    fk_tb_categoria_id = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name = "palavras_categoria", null = False)
+    
+class Palavras(models.Model):
+    palavras = models.CharField(max_length=88, null=False, blank= False)
+    
+    fk_tb_categoria_id = models.ForeignKey(Regras, on_delete=models.CASCADE, related_name = "palavra_regras", null = False)
+    
+    def __str__(self):
+        return "Palavra [palavra = [{}]]".format(self.palavras)
