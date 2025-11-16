@@ -18,12 +18,13 @@ class Regras(models.Model):
     
     tipo_homonimos = models.CharField(max_length=88, null=False,blank= False)
     
-    fk_tb_categoria_id = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name = "palavras_categoria", null = False)
-    
-class Palavras(models.Model):
-    palavras = models.CharField(max_length=88, null=False, blank= False)
-    
-    fk_tb_categoria_id = models.ForeignKey(Regras, on_delete=models.CASCADE, related_name = "palavra_regras", null = False)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name = "palavras_categoria", null = False)
     
     def __str__(self):
         return "Palavra [palavra = [{}]]".format(self.palavras)
+
+class Palavras(models.Model):
+    palavras = models.CharField(max_length=88, null=False, blank= False)
+    
+    regra = models.ForeignKey(Regras, on_delete=models.CASCADE, related_name = "palavra_regras", null = False)
+    
