@@ -1,0 +1,71 @@
+/* --- Table Container and Layout --- */
+body {
+    background-color: #f8f9fa; /* Light grey background for the page */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 20px;
+}
+
+h1 {
+    color: #343a40;
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid #007bff; /* Blue underline */
+    padding-bottom: 5px;
+}
+
+/* --- The Table Itself --- */
+.table {
+    background-color: #ffffff; /* White background for the table body */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Important for rounded corners on the table */
+}
+
+/* --- Table Header Styling --- */
+.table thead th {
+    background-color: #007bff; /* Primary blue color for the header */
+    color: white; /* White text for contrast */
+    font-weight: 600;
+    padding: 15px 20px; /* Increased padding */
+    text-align: left;
+    border-bottom: none; /* Remove default border */
+}
+
+/* --- Table Body Styling (Rows) --- */
+.table tbody tr td {
+    padding: 12px 20px; /* Consistent padding for content */
+    vertical-align: top; /* Align text to the top of the cell */
+    line-height: 1.5;
+}
+
+/* Styling for striped rows (Bootstrap's .table-striped) */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f7ff; /* Slightly different stripe color */
+}
+
+/* Styling for hover effect (Bootstrap's .table-hover) */
+.table-hover tbody tr:hover {
+    background-color: #e9ecef; /* Lighter background on hover */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Emphasizing the Word column */
+.table tbody tr td:first-child strong {
+    font-size: 1.1em;
+    color: #495057; /* Darker text for the word */
+    display: block; /* Ensure the strong tag takes full space */
+}
+
+/* Styling for the truncated notes */
+.table tbody tr td:nth-child(2),
+.table tbody tr td:nth-child(3) {
+    font-size: 0.95em;
+    color: #6c757d;
+}
+
+/* Custom width suggestion (optional: to make columns specific sizes) */
+/*
+.table thead th:nth-child(1) { width: 15%; } 
+.table thead th:nth-child(2) { width: 40%; }
+.table thead th:nth-child(3) { width: 45%; }
+*/
